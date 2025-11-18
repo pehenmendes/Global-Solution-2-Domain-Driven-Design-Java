@@ -75,14 +75,6 @@ API disponível em: `http://localhost:8080/api`
 | PUT    | /api/registros/{id}          | Atualiza registro              |
 | DELETE | /api/registros/{id}          | Remove registro                |
 
----
-
-### Endpoints adicionais
-Listar registros por paciente (GET /api/registros/paciente/{pacienteId})
-```bash
-curl -X GET http://localhost:8080/api/registros/paciente/1
-```
-
 
 ## Exemplos de cURL
 ### Cria Paciente
