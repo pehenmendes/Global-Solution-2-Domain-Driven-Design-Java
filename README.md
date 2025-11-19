@@ -77,7 +77,8 @@ API disponível em: `http://localhost:8080/api`
 
 
 ## Exemplos de cURL
-### Cria Paciente
+### 1. PACIENTE — CRUD COMPLETO
+#### 1.1 Criar Paciente (POST /api/pacientes)
 ```bash
 curl -X POST http://localhost:8080/api/pacientes \
 -H "Content-Type: application/json" \
@@ -88,14 +89,75 @@ curl -X POST http://localhost:8080/api/pacientes \
 }'
 ```
 
-### Criar Registro Diário
+#### 1.2 Listar Todos (GET /api/pacientes)
+```bash
+curl -X GET http://localhost:8080/api/pacientes
+```
+
+#### 1.3 Buscar por ID (GET /api/pacientes/{id})
+```bash
+curl -X GET http://localhost:8080/api/pacientes/1
+```
+
+#### 1.4 Atualizar Paciente (PUT /api/pacientes/{id})
+```bash
+curl -X PUT http://localhost:8080/api/pacientes/6 \
+-H "Content-Type: application/json" \
+-d '{
+  "nome": "Ricardo M. Moreira",
+  "email": "ricardo.m.moreira@example.com",
+  "dataNascimento": "1991-06-22"
+}'
+```
+
+#### 1.5 Deletar Paciente (DELETE /api/pacientes/{id})
+```bash
+curl -X DELETE http://localhost:8080/api/pacientes/1
+```
+
+### 2. REGISTRO DIÁRIO — CRUD COMPLETO
+
+#### 2.1 Criar Registro Diário (POST /api/registros)
 ```bash
 curl -X POST http://localhost:8080/api/registros \
 -H "Content-Type: application/json" \
 -d '{
-    "pacienteId":1,
-    "dataRegistro":"2025-01-01",
-    "nivelHumor":4,
-    "observacoes":"Dia bom"
+  "pacienteId": 6,
+  "dataRegistro": "2025-01-05",
+  "nivelHumor": 4,
+  "observacoes": "Dormiu bem e teve um dia tranquilo."
 }'
+```
+
+#### 2.2 Listar Todos os Registros (GET /api/registros)
+```bash
+curl -X GET http://localhost:8080/api/registros
+```
+
+#### 2.3 Buscar Registro por ID (GET /api/registros/{id})
+```bash
+curl -X GET http://localhost:8080/api/registros/3
+```
+
+#### 2.4 Atualizar Registro Diário (PUT /api/registros/{id})
+```bash
+curl -X PUT http://localhost:8080/api/registros/16 \
+-H "Content-Type: application/json" \
+-d '{
+  "pacienteId": 6,
+  "dataRegistro": "2025-01-05",
+  "nivelHumor": 5,
+  "observacoes": "Melhorou muito após uma boa noite de sono."
+}'
+```
+
+#### 2.5 Deletar Registro Diário (DELETE /api/registros/{id})
+```bash
+curl -X DELETE http://localhost:8080/api/registros/1
+```
+
+### 3. Endpoints adicionais
+#### Listar registros por paciente (GET /api/registros/paciente/{pacienteId})
+```bash
+curl -X GET http://localhost:8080/api/registros/paciente/1
 ```
