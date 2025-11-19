@@ -2,7 +2,7 @@
 
 ## Integrantes:
 - Pedro Henrique Mendes dos Santos (RM555332)
-- Kayky Silva Stiliano (RM555148)
+- Kayky Silva Stiliano (RM555148) ;;
 
 # Mental Health API
 
